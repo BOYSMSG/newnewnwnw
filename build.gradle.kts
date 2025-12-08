@@ -10,7 +10,6 @@ version = "1.0.0"
 repositories {
     mavenCentral()
     maven("https://maven.fabricmc.net/")
-    maven("https://maven.cobblemon.com/releases")
     maven("https://repo.kryptonmc.org/releases")
 }
 
@@ -19,9 +18,6 @@ dependencies {
     mappings("net.fabricmc:yarn:1.21.1+build.2:v2")
     modImplementation("net.fabricmc:fabric-loader:0.16.7")
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.103.0+1.21.1")
-    
-    // Cobblemon
-    modImplementation("com.cobblemon:fabric:1.6.2+1.21.1")
     
     // Adventure API
     include(implementation("net.kyori:adventure-platform-fabric:5.15.0")!!)

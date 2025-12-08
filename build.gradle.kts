@@ -16,12 +16,19 @@ dependencies {
     mappings("net.fabricmc:yarn:1.21.1+build.2:v2")
     modImplementation("net.fabricmc:fabric-loader:0.16.7")
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.103.0+1.21.1")
-
+    
+    // Only add these if compilation works without them first
+    // modImplementation("com.cobblemon:fabric:1.6.1+1.21.1")
+    
     implementation(kotlin("stdlib"))
 }
 
-tasks {
-    jar {
-        from("src/main/resources")
+kotlin {
+    jvmToolchain(21)
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "21"
     }
 }

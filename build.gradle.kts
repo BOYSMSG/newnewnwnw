@@ -1,9 +1,6 @@
 plugins {
-    val kotlinVersion = project.property("kotlin_version") as String
-    val loomVersion = project.property("loom_version") as String
-    
-    kotlin("jvm") version kotlinVersion
-    id("fabric-loom") version loomVersion
+    kotlin("jvm") version "1.9.22"
+    id("fabric-loom") version "1.7.4"
 }
 
 group = "tech.sethi.pebbles.pokeplushie"
@@ -12,8 +9,6 @@ version = "1.0.0"
 repositories {
     mavenCentral()
     maven("https://maven.fabricmc.net/")
-    maven("https://maven.terraformersmc.com/") // Optional: for modmenu, rei, etc.
-    maven("https://maven.shedaniel.me/") // Optional: for rei, cloth config
 }
 
 dependencies {
@@ -28,17 +23,5 @@ dependencies {
 tasks {
     jar {
         from("src/main/resources")
-    }
-    
-    // Add these common Fabric tasks if needed
-    processResources {
-        inputs.property("version", project.version)
-        filesMatching("fabric.mod.json") {
-            expand("version" to project.version)
-        }
-    }
-    
-    java {
-        withSourcesJar()
     }
 }

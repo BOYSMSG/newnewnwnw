@@ -1,40 +1,29 @@
 plugins {
-    id("dev.architectury.loom") version "1.7-SNAPSHOT"
-    id("architectury-plugin") version "3.4-SNAPSHOT"
+    id("dev.architectury.loom")
+    id("architectury-plugin")
 }
 
+
 architectury {
-    common("fabric")   // No Forge for 1.21.1
+    common("neoforge", "fabric")
 }
 
 loom {
     silentMojangMappingsLicense()
+    mixin {
+        defaultRefmapName.set("pokemontoitem-common-refmap.json")
+    }
 }
 
 dependencies {
-
-    // ========== Minecraft + Mappings ==========
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
-    mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
-
-    // ========== Fabric Loader ==========
+    // The following line declares the mojmap mappings, you may use other mappings as well
+    mappings(loom.officialMojangMappings())
+    // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
+    // Do NOT use other classes from fabric loader
     modImplementation("net.fabricmc:fabric-loader:${property("fabric_loader_version")}")
 
-    // ========== Kyori Adventure (MiniMessage + Gson) ==========
-    implementation("net.kyori:adventure-text-minimessage:${property("minimessage_version")}")
-    implementation("net.kyori:adventure-text-serializer-gson:${property("minimessage_version")}")
-    implementation("net.kyori:adventure-text-serializer-legacy:${property("minimessage_version")}")
-
-    // ========== Architectury ==========
-    modApi("dev.architectury:architectury:${property("architectury_version")}") {
-        isTransitive = false
-    }
-
-    // ========== Cobblemon 1.7.1 for Minecraft 1.21.1 ==========
-    modImplementation("com.cobblemon:mod:1.7.1+1.21.1") {
-        isTransitive = false
-    }
-
-    // ========== Your economy mod ==========
-    modImplementation(files("libs/pebbles-economy-1.0.0.jar"))
+    modImplementation("org.apache.httpcomponents:httpclient:4.5.13")
+    modImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+    modImplementation("com.cobblemon:mod:${property("cobblemon_version")}") { isTransitive = false }
 }

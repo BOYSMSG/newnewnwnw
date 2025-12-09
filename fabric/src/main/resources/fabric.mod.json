@@ -1,32 +1,38 @@
 {
-    "schemaVersion": 1,
-    "id": "pokeplushie",
-    "version": "${version}",
-    "name": "PokePlushie",
-    "description": "Adds Cobblemon plushies you can buy and collect.",
-    "authors": [
-        "Pebbles",
-        "Navneet"
+  "schemaVersion": 1,
+  "id": "pokemontoitem",
+  "version": "${version}",
+  "name": "PokemonToItem",
+  "description": "Helps In Converting Pokemon To an Item and vis-versa",
+  "authors": [
+    "Sreeraj S"
+  ],
+  "contact": {
+    "sources": "https://github.com/Sreeraj-S/PokemonToItem",
+    "issues": "https://github.com/Sreeraj-S/PokemonToItem/issues"
+  },
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "me.sreeraj.pokemontoitem.fabric.PokemonToItemFabric"
     ],
-    "contact": {
-        "issues": "https://github.com/navneetset/pokeplushies/issues",
-        "sources": "https://github.com/navneetset/pokeplushies"
-    },
-    "license": "MIT",
-    "icon": "icon.png",
-    "environment": "*",
-
-    "entrypoints": {
-        "main": [
-            "tech.sethi.pebbles.pokeplushie.fabric.PokePlushieFabric"
-        ]
-    },
-
-    "depends": {
-        "minecraft": "~1.21.1",
-        "fabricloader": ">=0.16.5",
-        "fabric-api": "*",
-        "architectury": ">=13.0.0",
-        "cobblemon": ">=1.7.1"
+    "client": []
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": ">=0.89.0",
+    "fabric-api": "*",
+    "minecraft": ">=1.21.0",
+    "java": ">=21",
+    "cobblemon": ">=1.6.0"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.modrinth": "https://modrinth.com/mod/pokemontoitem"
+      }
     }
+  }
 }

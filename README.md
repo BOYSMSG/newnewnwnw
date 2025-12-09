@@ -71,3 +71,4 @@ For support, feedback, and contributions, visit the official forums or GitHub re
 **Disclaimer:** This mod addon is independent of Mojang, Pokémon, and related entities. Always keep backups of your worlds when using mods. Utilize at your own discretion.
 
 **Note:** This README provides a broad overview. Consult the documentation or community resources for comprehensive guidance, troubleshooting, and further information.
+# newnewnwnw
